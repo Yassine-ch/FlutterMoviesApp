@@ -3,21 +3,9 @@ import 'package:flutter/material.dart';
 import 'movies/domain/entities/movie.dart';
 
 void main() {
-  Movie movie =  const Movie(id: 1,
-      title: "title",
-      backdropPath: "backdropPath",
-      genreIds: [5],
-      overview: "overview",
-      voteAverage: 1.0);
+
   runApp(MyApp());
-  Movie movie1 =const Movie(id: 1,
-      title: "title",
-      backdropPath: "backdropPath",
-      genreIds: [5],
-      overview: "overview",
-      voteAverage: 1.0);
-  runApp(MyApp());
-  print (movie1 == movie);
+
 }
 
 class MyApp extends StatelessWidget {
