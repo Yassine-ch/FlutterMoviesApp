@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:movies_app/error/exceptions.dart';
 import 'package:movies_app/movies/data/models/movie_model.dart';
 import 'package:movies_app/network/erroe_message_model.dart';
 
@@ -9,7 +10,9 @@ if(response.statusCode==200){
   return List<MovieModel>.from((response.data["results"]as List).map((e) => MovieModel.fromJson(e)));
 }else
   {
-    return ErrorMessageModel.fromJson( response.data[]);
+  throw ServerException (
+    errorMessageModel: ErrorMessageModel.fromJson(response.data),
+  );
   }
 }
 }
