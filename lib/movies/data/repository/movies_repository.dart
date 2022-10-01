@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:movies_app/error/exceptions.dart';
+import 'package:movies_app/error/failure.dart';
 import 'package:movies_app/movies/data/datasource/movie_remote_data_source.dart';
 import 'package:movies_app/movies/data/models/movie_model.dart';
 import 'package:movies_app/movies/domain/entities/movie.dart';
@@ -9,7 +10,7 @@ class MoviesRopository  extends BaseMoviesRepository{
   final BaseMovieRemoteDataSource baseMovieRemoteDataSource;
   MoviesRopository(this.baseMovieRemoteDataSource);
   @override
-  Future<Either<List<Movie>,LocalDataBaseException>> getNowPlayingMovies() async {
+  Future<Either<List<Movie>,Failure>> getNowPlayingMovies() async {
 
   final result = await baseMovieRemoteDataSource.getNowPlayingMovies();
 
@@ -27,6 +28,7 @@ class MoviesRopository  extends BaseMoviesRepository{
     // TODO: implement getTopRatedMovies
     throw UnimplementedError();
   }
+
 
 
 }
